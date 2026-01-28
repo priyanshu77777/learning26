@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Recipe page</h1>
+    <h1>Recipe name : {{name}}</h1>
+    <h2>Time : {{time}} Min</h2>
+    <h2>INGREDIENT : {{ingredients}}</h2>
+    {% for i in ingredients %}
+    <h3>{{i}}</h3>
+    {% endfor %}
+
+    <h1>if</h1>
+    {% if time <= 20 %}
+        <h1>Food is not tasty</h1>
+    {% else %}
+        <h1>Food is tasty</h1>
+    {% endif %}
+</body>
+</html>

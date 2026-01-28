@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Workout Plan</h1>
+    <h1>Workout at : {{workoutat}}</h1>
+    <h2>Goal : {{goal}}</h2>
+    <h2>Calories burned : {{calories_burned}}</h2>
+    <h2>Necessary Things : <h2>
+    <ul>
+    {% for i in necessarythings %}
+        <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+    {% if calories_burned > "300" %}
+        <h2>Great workout</h2>
+    {% else %}
+        <h2>Push Harder</h2>
+    {% endif %}
+</body>
+</html>

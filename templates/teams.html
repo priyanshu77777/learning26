@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Teams Info</h1>
+    <h1>Team name :{{teamname}}</h1>
+    <h2>JerseyColour :{{JerseyColour}}</h2>
+    <h2>Captain :{{captain}}</h2>
+    <h2>Team players:<h2>
+    <ul>
+    {% for i in teamplayers %}
+        <li>{{i}}</li>
+    {% endfor %}
+    </ul>
+    {% if teambanfor == "2" %}
+        <h2>CSK is ban for 2 years</h2>
+    {% else %}
+        <h2>RCB has loyal fanbase</h2>
+    {% endif %}
+</body>
+</html>
