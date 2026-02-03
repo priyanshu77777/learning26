@@ -4,11 +4,14 @@ from django.shortcuts import render
 def test(request):
     return HttpResponse("Hello")
 
-def about(request):
-    return HttpResponse("aboutus")
+def AboutUs(request):
+    return render(request,"aboutus.html")
 
 def contact(request):
     return render(request, 'contact.html')
+
+def home(request):
+    return render(request,"home.html")
 
 def recipe(request):
     ingredients = ["Aloo","spices"]
@@ -17,7 +20,7 @@ def recipe(request):
 
 def teams(request):
     teamplayers = ["Virat Kohli","Rajat Patidar","Phil Salt"]
-    data = {"teamname":"RCB","teambanfor":"2","JerseyColour":"red","captain":"Rajat Patidar","teamplayers":teamplayers}
+    data = {"teamname":"RCB","teambanfor":"3","JerseyColour":"red","captain":"Rajat Patidar","teamplayers":teamplayers}
     return render(request,"teams.html",data)
 
 def gymplan(request):
