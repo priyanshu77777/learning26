@@ -68,3 +68,28 @@ class Service(models.Model):
 
     def __str__(self):
         return self.serviceName
+
+class Instructor(models.Model):
+    instructorName = models.CharField(max_length=100)
+    instructorEmail = models.EmailField(unique=True)
+    instructorPhone = models.CharField(max_length=10)
+    instructorStatus = models.BooleanField(default=True)
+
+    class Meta:
+        db_table = "instructor"
+
+    def __str__(self):
+        return self.instructorName
+
+class Batch(models.Model):
+    batchName = models.CharField(max_length=100)
+    batchStartDate = models.DateField()
+    batchEndDate = models.DateField()
+    batchStatus = models.BooleanField(default=True)
+    instructorId = models.ForeignKey(Instructor, on_delete=models.CASCADE)
+
+    class Meta:
+        db_table = "batch"
+
+    def __str__(self):
+        return self.batchName
