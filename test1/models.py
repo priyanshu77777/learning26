@@ -1,7 +1,6 @@
 from django.db import models
 
-# Create your models here.
-# 1️⃣ Society Model
+# Create your models here
 class Society(models.Model):
     societyName = models.CharField(max_length=100)
     address = models.TextField()
@@ -12,9 +11,7 @@ class Society(models.Model):
 
     def __str__(self):
         return self.societyName
-
-
-# 2️⃣ Flat Model
+    
 class Flat(models.Model):
     societyId = models.ForeignKey(Society, on_delete=models.CASCADE)
     flatNumber = models.CharField(max_length=10)
@@ -25,20 +22,15 @@ class Flat(models.Model):
 
     def __str__(self):
         return f"{self.blockName}-{self.flatNumber}"
-
-
-# 3️⃣ Member Model
+    
 class Member(models.Model):
-    ROLE_CHOICES = (
-        ('Admin', 'Admin'),
-        ('Resident', 'Resident'),
-    )
+    ROLE_CHOICES = (('Admin','Admin'),('Resident','Resident'))
 
     societyId = models.ForeignKey(Society, on_delete=models.CASCADE)
     flatId = models.ForeignKey(Flat, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=10)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES)
 
     class Meta:
@@ -47,13 +39,11 @@ class Member(models.Model):
     def __str__(self):
         return self.name
 
-
-# 4️⃣ Maintenance Model
 class Maintenance(models.Model):
     flatId = models.ForeignKey(Flat, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     dueDate = models.DateField()
-    status = models.BooleanField(default=False)  # False = Pending, True = Paid
+    status = models.BooleanField(default=False)
 
     class Meta:
         db_table = "maintenance"
@@ -61,14 +51,8 @@ class Maintenance(models.Model):
     def __str__(self):
         return f"{self.flatId} - {self.amount}"
 
-
-# 5️⃣ Complaint Model
 class Complaint(models.Model):
-    STATUS_CHOICES = (
-        ('Open', 'Open'),
-        ('In Progress', 'In Progress'),
-        ('Resolved', 'Resolved'),
-    )
+    STATUS_CHOICES = (('Open', 'Open'),('In Progress', 'In Progress'),('Resolved', 'Resolved'))
 
     memberId = models.ForeignKey(Member, on_delete=models.CASCADE)
     subject = models.CharField(max_length=150)
@@ -81,9 +65,7 @@ class Complaint(models.Model):
 
     def __str__(self):
         return self.subject
-
-
-# 6️⃣ Notice Model
+    
 class Notice(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField()

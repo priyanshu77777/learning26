@@ -29,5 +29,6 @@ urlpatterns = [
     path('teams/',views.teams),
     path('gymplan/',views.gymplan),
     path('student/',include("student.urls")),
+    path("employee/",include("employee.urls"))
 ]
 
