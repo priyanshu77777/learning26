@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from .models import Employee
 from .forms import EmployeeForm,CourseForm
 
@@ -83,11 +83,11 @@ def createEmployeeWithForm(request):
     if request.method == "POST":
         form = EmployeeForm(request.POST)
         form.save() #it same as create
-        return HttpResponse("EMPLOYEE CREATED...")
+        return redirect("employeeList")
     else:
         #form object create --> html
         form = EmployeeForm() #form object        
-        return render(request,"employee/createEmployeeForm.html",{"form":form})
+        return render(request,"employee/createEmployeeWithForm.html",{"form":form})
 
 def createCourse(request):
     if request.method == "POST":
@@ -96,4 +96,26 @@ def createCourse(request):
         return HttpResponse("COURSE CREATED...")
     else:
         form = CourseForm()
-        return render(request,"employee/createCourse.html",{"form":form})    
+        return render(request,"employee/createCourse.html",{"form":form})   
+
+def deleteEmployee(request,id):
+    print("id from url = ",id)
+    Employee.objects.filter(id=id).delete()
+    return redirect ("employeeList")
+
+def filterEmployee(request):
+    print("filter employee called..")
+    employees = Employee.objects.filter(age__gte=25).values()
+    print("filter employees = ",employees)
+    return render(request,"employee/employeeList.html",{"employees":employees})
+
+def sortemployee(request,id):
+    if id == 1:
+        print("ascending employee are..")
+        employees = Employee.objects.all().order_by("age").values()
+    elif id == 2:
+        print("descending employees are..")
+        employees = Employee.objects.all().order_by("-age").values()
+    else:
+        employees = Employee.object.all().values()
+    return render(request,"employee/employeeList.html",{"employees":employees})
