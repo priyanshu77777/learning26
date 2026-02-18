@@ -8,5 +8,6 @@ urlpatterns = [
     path('createCourse/',views.createCourse),
     path('deleteEmployee/<int:id>',views.deleteEmployee,name="deleteEmployee"),
     path("filterEmployee/",views.filterEmployee,name="filterEmployee"),
-    path('sortemployee/<int:id>',views.sortemployee,name="sortemployee")
+    path('sortemployee/<int:id>',views.sortemployee,name="sortemployee"),
+    path('updateEmployee/<int:id>',views.updateEmployee,name="updateEmployee")
 ]

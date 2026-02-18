@@ -1,0 +1,130 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f9;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    background: #1f2937;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #38bdf8;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+}
+
+/* ================= TITLE ================= */
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 32px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-warning {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #d97706;
+}
+
+/* ================= TABLE ================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+th {
+    background: #1f2937;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background: #f1f5f9;
+}
+
+/* ================= ACTION LINKS ================= */
+
+.actions a {
+    margin-right: 8px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+    margin-top: 40px;
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
